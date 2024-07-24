@@ -24,8 +24,7 @@ public class ControllerV3HandlerAdapter implements MyHandlerAdapter {
     }
 
     @Override
-    public ModelView handle(HttpServletRequest request, HttpServletResponse
-            response, Object handler) {
+    public ModelView handle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         // supports를 통해 handler는 ControllerV3만 지원하는것을 알기 때문에 타입 변환등에 문제가 없다.
         ControllerV3 controller = (ControllerV3) handler;
         Map<String, String> paramMap = createParamMap(request);
@@ -41,24 +40,24 @@ public class ControllerV3HandlerAdapter implements MyHandlerAdapter {
         return paramMap;
     }
 
-    private void initHandlerMappingMap() {
-        handlerMappingMap.put("/front-controller/v5/v3/members/new-form", new
-                MemberFormControllerV3());
-        handlerMappingMap.put("/front-controller/v5/v3/members/save", new
-                MemberSaveControllerV3());
-        handlerMappingMap.put("/front-controller/v5/v3/members", new
-                MemberListControllerV3());
-            //V4 추가
-        handlerMappingMap.put("/front-controller/v5/v4/members/new-form", new
-                MemberFormControllerV4());
-        handlerMappingMap.put("/front-controller/v5/v4/members/save", new
-                MemberSaveControllerV4());
-        handlerMappingMap.put("/front-controller/v5/v4/members", new
-                MemberListControllerV4());
-    }
-
-    private void initHandlerAdapters() {
-        handlerAdapters.add(new ControllerV3HandlerAdapter()); handlerAdapters.add(new ControllerV4HandlerAdapter()); //V4 추가
-    }
+//    private void initHandlerMappingMap() {
+//        handlerMappingMap.put("/front-controller/v5/v3/members/new-form", new
+//                MemberFormControllerV3());
+//        handlerMappingMap.put("/front-controller/v5/v3/members/save", new
+//                MemberSaveControllerV3());
+//        handlerMappingMap.put("/front-controller/v5/v3/members", new
+//                MemberListControllerV3());
+//            //V4 추가
+//        handlerMappingMap.put("/front-controller/v5/v4/members/new-form", new
+//                MemberFormControllerV4());
+//        handlerMappingMap.put("/front-controller/v5/v4/members/save", new
+//                MemberSaveControllerV4());
+//        handlerMappingMap.put("/front-controller/v5/v4/members", new
+//                MemberListControllerV4());
+//    }
+//
+//    private void initHandlerAdapters() {
+//        handlerAdapters.add(new ControllerV3HandlerAdapter()); handlerAdapters.add(new ControllerV4HandlerAdapter()); //V4 추가
+//    }
 
 }
